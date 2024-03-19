@@ -7,19 +7,6 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    screens: {
-      sm: "640px",
-      // => @media (min-width: 640px) { ... }
-
-      md: "768px",
-      // => @media (min-width: 768px) { ... }
-
-      lg: "1024px",
-      // => @media (min-width: 1024px) { ... }
-
-      xl: "1280px",
-      // => @media (min-width: 1280px) { ... }
-    },
     extend: {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
@@ -27,13 +14,20 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
     },
-    fontFamily: {},
+
     colors: {
       black: "#131313",
       primary: "#E25319",
       white: "white",
+      balance: "#A2A1A8",
       secondry: "#A2A1A833",
       danger: "#A2A1A80D",
+      lightGreeen: "#3FC28A1A",
+      lightRed: "#F45B691A",
+      Red: "#F45B69",
+      green: "#3FC28A",
+      lightWhite: "#A2A1A8",
+      transparent: "transparent",
     },
   },
 

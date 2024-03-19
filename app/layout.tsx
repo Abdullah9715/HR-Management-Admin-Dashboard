@@ -1,7 +1,5 @@
 import { Lexend } from "next/font/google";
 import "./globals.css";
-import Sidebar from "./components/sidebar/Sidebar";
-import Header from "./components/header/Header";
 
 const inter = Lexend({
   subsets: ["latin"],
@@ -15,16 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <div className="flex xl:w-full lg:w-full md:w-full xl:h-[1024px] h-screen bg-black">
-          <Sidebar />
-          <div className="xl:w-[1040] lg:w-full w-full">
-            <Header />
-
-            {children}
-          </div>
-        </div>
-      </body>
+      <body className={inter.className}>{children}</body>
     </html>
   );
 }

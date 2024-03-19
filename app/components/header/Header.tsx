@@ -6,13 +6,13 @@ import arrow from "../../assets/icons/direction-down.svg";
 
 export default function Header() {
   return (
-    <div className="h-20 sticky mt-5 ms-5 p-2 text-white flex w-auto justify-between">
-      <div>
-        <h1>Lucifer</h1>
-        <p>Good morning</p>
+    <>
+      <div className="w-auto">
+        <h1 className="text-xl">Lucifer</h1>
+        <p className="text-balance text-sm">Good morning</p>
       </div>
-      <div className="flex flex-row">
-        <div className="flex flex-row p-2 gap-4 me-5  border-[1px] border-secondry rounded">
+      <div className="flex flex-row justify-center items-center w-auto ms-auto">
+        <div className="flex flex-row p-2 gap-4 me-5 h-[50px]  border-[1px] border-secondry rounded-md">
           <Image src={search} alt="" />
           <input
             type="text"
@@ -21,15 +21,15 @@ export default function Header() {
           />
         </div>
         <Image src={notification} alt="notification" className="me-5" />
-        <div className="flex flex-row border-[1px] me-3 gap-2 border-secondry rounded p-2">
+        <div className="flex flex-row border-[1px] me-3 gap-2 border-secondry  h-[50px] rounded-md p-1">
           <Image src={notification} alt="notificatio" />
           <div>
-            <h1>Lucifer</h1>
-            <p>Good morning</p>
+            <h1 className="text-base">Lucifer</h1>
+            <p className="text-xs text-balance">Good morning</p>
           </div>
           <Image src={arrow} alt="notification" />
         </div>
       </div>
-    </div>
+    </>
   );
 }

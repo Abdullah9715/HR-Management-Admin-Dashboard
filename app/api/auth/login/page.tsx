@@ -13,7 +13,7 @@ type Change = {
     value: string;
   };
 };
-function page() {
+function Login() {
   const router = useRouter();
   const [state, setState] = useState({ email: "", password: "" });
   const handleChange = (e: Change) =>
@@ -24,12 +24,18 @@ function page() {
       ...state,
       redirect: false,
     });
-    router.push("/");
+    router.replace("/");
+  };
+  const handleloginwithGoogle = () => {
+    signIn("credentials", {
+      redirect: false,
+    });
+    router.replace("/");
   };
   return (
-    <section className="bg-black text-white ">
-      <div className="flex flex-col items-center w-[445px] h-[561px] justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-        <div className="w-fullrounded-lg shadow  md:mt-0 sm:max-w-md xl:p-0">
+    <section className="bg-black flex justify-center items-center text-white ">
+      <div className="flex flex-col  w-[445px] bg-secondry h-[561px] justify-center py-8 items-center md:h-screen lg:py-0">
+        <div className="w-full rounded-lg shadow  md:mt-0 sm:max-w-md xl:p-0">
           <Image src={img} alt="Icon" width={409} height={166} />
           <div className="p-6 sm:p-8">
             <h1 className="text-2xl font-bold mb-2 md:text-3xl dark:text-white">
@@ -98,6 +104,12 @@ function page() {
               >
                 Sign in
               </button>
+              <button
+                onClick={handleloginwithGoogle}
+                className="w-full text-white bg-primary hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-prborder-primary dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+              >
+                Sign wiht Google
+              </button>
               <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                 Don’t have an account yet?
                 <Link
@@ -115,4 +127,4 @@ function page() {
   );
 }
 
-export default page;
+export default Login;

@@ -1,9 +1,8 @@
+import Dashboard from "./(pages)/dashboard/page";
 import Header from "./components/header/Header";
 import Logout from "./components/logout";
-import Main from "./components/main/main";
 import Sidebar from "./components/sidebar/Sidebar";
-import DefaultLayout from "./components/defaultLayout/DefaultLayout";
-import Dashboard from "./pages/dashboard/page";
+
 export default async function Home() {
   // const user = await getServerSession();
   // console.log("user", user);
@@ -12,10 +11,21 @@ export default async function Home() {
   // }
 
   return (
-    // <DefaultLayout>
-    // <Main />
-    // </DefaultLayout>
-    // <h1 className="text-white">h1</h1>
-    <Dashboard />
+    <>
+      <div className="flex h-screen bg-black">
+        <div className=" text-white w-64 flex-shrink-0">
+          <Sidebar />
+        </div>
+        <div className="flex flex-col flex-1">
+          <header className="text-white px-4 py-2 flex justify-between items-center">
+            <Header />
+          </header>
+          <main className="p-4 flex-1 overflow-y-auto">
+            <Logout />
+            <Dashboard />
+          </main>
+        </div>
+      </div>
+    </>
   );
 }

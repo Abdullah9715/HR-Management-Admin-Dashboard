@@ -28,15 +28,11 @@ function page() {
     });
 
     const userInfo = response;
-    console.log("🚀 ~ handleSubmit ~ response:", response);
-    console.log("🚀 ~ handleSubmit ~ userInfo:", userInfo);
+
     router.push("/api/auth/login");
-    console.log("email", email);
-    console.log("password", password);
-    console.log("name", name);
   };
   return (
-    <section className="bg-black h-screen flex justify-center items-center w-full text-white ">
+    <section className="bg-black text-white ">
       <div className="flex flex-col items-center w-[445px] h-[561px] justify-center bg-secondry px-6 py-8 mx-auto md:h-screen lg:py-0">
         <div className="w-fullrounded-lg shadow  md:mt-0 sm:max-w-md xl:p-0">
           <Image src={img} alt="Icon" className="max-w-[409px] max-h-[166px]" />

@@ -1,10 +1,10 @@
 import GitHubProvider from "next-auth/providers/github";
 import NextAuth from "next-auth";
+import bcrypt from "bcrypt";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { prisma } from "@/config/prisma";
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import Google from "next-auth/providers/google";
-
 const authOptions = {
   adapter: PrismaAdapter(prisma),
   providers: [
@@ -29,9 +29,21 @@ const authOptions = {
           const user = await prisma.user.findFirst({
             where: {
               email: credentials?.username,
-              password: credentials?.password,
             },
           });
+          if (!user) {
+            return null;
+          }
+
+          if (credentials?.password) {
+            const passwordMatch = bcrypt.compare(
+              credentials?.password,
+              user.password
+            );
+            if (!passwordMatch) {
+              return null;
+            }
+          }
 
           if (user) {
             return user;
@@ -50,7 +62,12 @@ const authOptions = {
       clientSecret: process.env.GOOGLE_SECRET as string,
     }),
   ],
-  session: { strategy: "jwt" },
+  // pages: {
+  //   signIn: "/auth/login",
+  //   register: "/auth/regitser",
+  // },
+
+  session: { strategy: "jwt", maxAge: 1 * 24 * 60 * 60 },
   secret: process.env.NEXTAUTH_SECRET,
   debug: process.env.NODE_ENV === "development",
 };
