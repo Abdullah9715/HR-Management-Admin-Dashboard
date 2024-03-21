@@ -1,15 +1,18 @@
 import Image from "next/image";
-import React from "react";
+import React, { FC } from "react";
 import search from "../../assets/icons/Union.svg";
 import notification from "../../assets/icons/Notification.svg";
 import arrow from "../../assets/icons/direction-down.svg";
-
-export default function Header() {
+interface HeaderProps {
+  mainTitle: string;
+  greeting: string;
+}
+const Header: FC<HeaderProps> = ({ mainTitle, greeting }) => {
   return (
     <>
       <div className="w-auto">
-        <h1 className="text-xl">Lucifer</h1>
-        <p className="text-balance text-sm">Good morning</p>
+        <h1 className="text-xl">{mainTitle}</h1>
+        <p className="text-balance text-sm">{greeting}</p>
       </div>
       <div className="flex flex-row justify-center items-center w-auto ms-auto">
         <div className="flex flex-row p-2 gap-4 me-5 h-[50px]  border-[1px] border-secondry rounded-md">
@@ -32,4 +35,6 @@ export default function Header() {
       </div>
     </>
   );
-}
+};
+
+export default Header;

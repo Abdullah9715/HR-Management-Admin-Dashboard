@@ -1,5 +1,6 @@
 import React from "react";
 import DepartmentEmployee from "../departmentEmployee/DepartmentEmployee";
+import Link from "next/link";
 
 export default function Departmentsection() {
   return (
@@ -10,7 +11,9 @@ export default function Departmentsection() {
           <h5 className="text-[14px] text-balance">members</h5>
         </div>
         <div className=" flex items-center text-center">
-          <h2 className="text-primary text-[16px]">View All</h2>
+          <Link href={"viewDepartment"}>
+            <h2 className="text-primary text-[16px]">View All</h2>
+          </Link>
         </div>
       </div>
       <div className="space-y-3">

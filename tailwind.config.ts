@@ -28,6 +28,7 @@ const config: Config = {
       green: "#3FC28A",
       lightWhite: "#A2A1A8",
       transparent: "transparent",
+      lightOrange: "#E253191A",
     },
   },
 

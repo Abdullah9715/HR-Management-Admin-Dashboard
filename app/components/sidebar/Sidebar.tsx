@@ -39,7 +39,9 @@ export default function Sidebar() {
                 </Link>
               );
             })}
-            {/* <Link href={"dashboard"}>
+            {/* 
+            
+            <Link href={"dashboard"}>
               <li
                 className="flex flex-row gap-4 hover:bg-primary p-2 hover:rounded hover:border-l-primary hover:border-l-[2px] 
           active:bg-primary focus:outline-none focus:ring focus:ring-primary"

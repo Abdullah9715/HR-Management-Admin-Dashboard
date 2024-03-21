@@ -1,9 +1,11 @@
+"use client";
+import { UploadButton } from "@/utils/uploadthing";
 import Dashboard from "./(pages)/dashboard/page";
 import Header from "./components/header/Header";
 import Logout from "./components/logout";
 import Sidebar from "./components/sidebar/Sidebar";
 
-export default async function Home() {
+export default function Home() {
   // const user = await getServerSession();
   // console.log("user", user);
   // if (!user) {
@@ -18,10 +20,11 @@ export default async function Home() {
         </div>
         <div className="flex flex-col flex-1">
           <header className="text-white px-4 py-2 flex justify-between items-center">
-            <Header />
+            <Header mainTitle={"Lucifer "} greeting={"Goodmornig"} />
           </header>
           <main className="p-4 flex-1 overflow-y-auto">
             <Logout />
+
             <Dashboard />
           </main>
         </div>

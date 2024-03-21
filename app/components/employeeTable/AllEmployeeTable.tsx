@@ -2,6 +2,7 @@ import { HOMEICONS, ICON } from "@/app/constants/Images";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import PaginationBar from "../paginationBar/PaginationBar";
 
 export default function AllEmployeeTable() {
   return (
@@ -84,11 +85,14 @@ export default function AllEmployeeTable() {
             <td className="px-6 font-light flex flex-row items-center gap-3 text-[16px] whitespace-nowrap text-white py-4">
               <Image src={ICON.TRASH} alt="" className="h-[24px] w-[24px]" />
               <Image src={ICON.EDIT} alt="" className="h-[24px] w-[24px]" />
-              <Image src={ICON.VIEW} alt="" className="h-[24px] w-[24px]" />
+              <Link href={"/viewEmployee"}>
+                <Image src={ICON.VIEW} alt="" width={109} height={120} />
+              </Link>
             </td>
           </tr>
         </tbody>
       </table>
+      <PaginationBar />
     </div>
   );
 }

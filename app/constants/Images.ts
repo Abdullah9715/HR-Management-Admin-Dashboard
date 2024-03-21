@@ -35,7 +35,8 @@ import DOCUMENT from "../assets/icons/document-text white.svg";
 import DOCUMENTORANGE from "../assets/icons/document-text orange.svg";
 import profile from "../assets/icons/Profile Photo.svg";
 import upload from "../assets/icons/upload.svg";
-
+import Download from "../assets/icons/download 01.svg";
+import Gmail from "../assets/icons/gmail.svg";
 export const ICON = {
   ARROW: icon,
   SEARCH: search,
@@ -45,6 +46,8 @@ export const ICON = {
   EDIT: edit,
   VIEW: view,
   RIGHTARROW: arrowRight,
+  DOWNLOAD: Download,
+  GMAIL: Gmail,
 };
 
 export const HOMEICONS = {
