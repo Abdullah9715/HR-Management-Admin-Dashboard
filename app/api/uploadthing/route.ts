@@ -1,7 +1,14 @@
-import { createRouteHandler } from "uploadthing/next";
+// Export types for both routers
+export type OurFileRouter = typeof ourFileRouter;
+export type ImageUploaderRouterType = typeof ImageUploaderRouter;
 
-import { ourFileRouter } from "./core";
+// Merge both routers into one
+const combinedRouter = { ...ourFileRouter, ...ImageUploaderRouter };
+
+// Use the combined router in createRouteHandler
+import { createRouteHandler } from "uploadthing/next";
+import { ImageUploaderRouter, ourFileRouter } from "./core";
 
 export const { GET, POST } = createRouteHandler({
-  router: ourFileRouter,
+  router: combinedRouter,
 });

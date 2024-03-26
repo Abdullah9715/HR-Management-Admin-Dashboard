@@ -1,9 +1,21 @@
-import { ADDEMPLOYEE } from "@/app/constants/Images";
 import { UploadDropzone } from "@/utils/uploadthing";
-import Image from "next/image";
 import React from "react";
 
-const Dropzone = ({ content }: { content: string }) => {
+const Dropzone = ({
+  content,
+  formData,
+  setFormData,
+}: {
+  content: string;
+  formData: FormData;
+  setFormData: React.Dispatch<React.SetStateAction<FormData>>;
+}) => {
+  const handleImageUpload = (imageUrl: string) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      imageUrl,
+    }));
+  };
   return (
     <div className="space-y-4 text-white w-[48%]">
       <h1>{content}</h1>
@@ -12,7 +24,6 @@ const Dropzone = ({ content }: { content: string }) => {
           appearance={{
             button: {
               background: "transparent",
-
               color: "#E25319",
             },
             uploadIcon: {
@@ -23,23 +34,16 @@ const Dropzone = ({ content }: { content: string }) => {
               display: "flex",
             },
           }}
-          endpoint="imageUploader"
+          endpoint="pdfUploader"
           onClientUploadComplete={(res) => {
-            // Do something with the response
             console.log("Files: ", res);
+            handleImageUpload(res[0].url);
             alert("Upload Completed");
           }}
           onUploadError={(error: Error) => {
-            // Do something with the error.
             alert(`ERROR! ${error.message}`);
           }}
         />
-        <Image src={ADDEMPLOYEE.UPLOAD} alt="upload" width={40} height={40} />
-        <h1>
-          Drag & Drop or <span className="text-primary">choose file </span>
-          to upload
-        </h1>
-        <h2>Supported formats : Jpeg, pdf</h2>
       </div>
     </div>
   );

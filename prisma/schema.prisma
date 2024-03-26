@@ -20,12 +20,35 @@ model User {
   password String
 }
 
-model employee {
-  id          String @id @default(auto()) @map("_id") @db.ObjectId
-  name        String
-  empId       String
-  department  String
-  designation String
-  type        String
-  status      String
+model Employee {
+  id                String  @id @default(auto()) @map("_id") @db.ObjectId
+  firstName         String
+  lastName          String
+  email             String  @unique
+  mobileNumber      String
+  maritalStatus     String
+  gender            String
+  nationality       String
+  address           String
+  city              String
+  state             String
+  zip               String
+  imageUrl          String
+  startDate         String
+  employeeID        String?
+  userName          String?
+  employeeType      String?
+  emailAddress      String?
+  department        String?
+  designation       String?
+  workingDays       String?
+  joinDate          String?
+  officeLocation    String?
+  appointmentLetter String?
+  salarySlips       String?
+  relivingLetter    String?
+  experienceLetter  String?
+  stockID           String?
+  skypeID           String?
+  githubID          String?
 }

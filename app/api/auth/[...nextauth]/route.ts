@@ -44,7 +44,6 @@ const authOptions = {
               return null;
             }
           }
-
           if (user) {
             return user;
           }

@@ -7,11 +7,31 @@ import ViewProjectTable from "@/app/components/viewProjectTable/ViewProjectTable
 import { ADDEMPLOYEE, HOMEICONS, ICON, SIDEBAR } from "@/app/constants/Images";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import User from "../../assets/icons/Rectangle 3463328.svg";
+import { useAppDispatch, useAppSelector } from "@/redux/storeHook";
+import { fetchEmployees } from "@/redux/slices/getEmployee";
+
 export default function ViewEmployee() {
   const [selectedTab, setSelectedTab] = useState(0);
   const show = true;
+
+  const dispatch = useAppDispatch();
+  const data = useAppSelector((state) => state.employees.employeeData);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        dispatch(fetchEmployees());
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, [dispatch]);
+  console.log("data", data);
+
   return (
     <div className="border-[1px]  border-secondry p-5 rounded-lg ">
       <div className="flex flex-row pb-8 border-b-2 border-b-secondry text-white justify-between">

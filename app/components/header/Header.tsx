@@ -3,6 +3,7 @@ import React, { FC } from "react";
 import search from "../../assets/icons/Union.svg";
 import notification from "../../assets/icons/Notification.svg";
 import arrow from "../../assets/icons/direction-down.svg";
+import DropDown from "../dropdown/Dropdown";
 interface HeaderProps {
   mainTitle: string;
   greeting: string;
@@ -25,12 +26,13 @@ const Header: FC<HeaderProps> = ({ mainTitle, greeting }) => {
         </div>
         <Image src={notification} alt="notification" className="me-5" />
         <div className="flex flex-row border-[1px] me-3 gap-2 border-secondry  h-[50px] rounded-md p-1">
-          <Image src={notification} alt="notificatio" />
+          {/* <Image src={notification} alt="notificatio" />
           <div>
             <h1 className="text-base">Lucifer</h1>
             <p className="text-xs text-balance">Good morning</p>
           </div>
-          <Image src={arrow} alt="notification" />
+          <Image src={arrow} alt="notification" /> */}
+          <DropDown />
         </div>
       </div>
     </>

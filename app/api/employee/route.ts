@@ -4,24 +4,75 @@ import { prisma } from "@/config/prisma";
 // Create new employee
 export const POST = async (request: NextRequest) => {
   try {
-    const { name, empId, department, designation, type, status } =
-      await request.json();
+    const {
+      firstName,
+      lastName,
+      email,
+      mobileNumber,
+      maritalStatus,
+      gender,
+      nationality,
+      address,
+      city,
+      state,
+      zip,
+      imageUrl,
+      startDate,
+      employeeID,
+      userName,
+      employeeType,
+      emailAddress,
+      department,
+      designation,
+      workingDays,
+      joinDate,
+      officeLocation,
+      appointmentLetter,
+      salarySlips,
+      relivingLetter,
+      experienceLetter,
+      stockID,
+      skypeID,
+      githubID,
+    } = await request.json();
 
-    if (!name || !empId || !department || !type || !status || !designation) {
+    if (!designation) {
       return new NextResponse("Missing something", {
         status: 400,
       });
     }
-
     try {
       const employee = await prisma.employee.create({
         data: {
-          name,
-          empId,
+          firstName,
+          lastName,
+          email,
+          mobileNumber,
+          maritalStatus,
+          gender,
+          nationality,
+          address,
+          city,
+          state,
+          zip,
+          imageUrl,
+          startDate,
+          employeeID,
+          userName,
+          employeeType,
+          emailAddress,
           department,
           designation,
-          type,
-          status,
+          workingDays,
+          joinDate,
+          officeLocation,
+          appointmentLetter,
+          salarySlips,
+          relivingLetter,
+          experienceLetter,
+          stockID,
+          skypeID,
+          githubID,
         },
       });
 

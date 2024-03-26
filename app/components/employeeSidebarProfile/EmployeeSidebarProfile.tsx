@@ -1,14 +1,22 @@
-"use client";
 import { ADDEMPLOYEE } from "@/app/constants/Images";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ViewPersonalInformationMian from "../viewPersonalInformation/ViewPersonalInformationMian";
 import ViewPersonalInformation from "../viewEmployeeSidebar/ViewPersonalInformation";
 import ViewEmployeeDocument from "../viewEmployeeDocument/ViewEmployeeDocument";
 import ViewEmployeeAccess from "../viewEmployeeAccess/ViewEmployeeAccess";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  fatchEmployees,
+  selectAllemployess,
+  selectIsLoading,
+} from "@/redux/slices/getEmployee";
+import { Action } from "@reduxjs/toolkit";
+import axios from "axios";
 export default function EmployeeSidebarProfile() {
   const [selectedTab, setSelectedTab] = useState(0);
   const show = true;
+
   return (
     <>
       <div className="flex flex-row gap-4 text-white  max-w-full">
